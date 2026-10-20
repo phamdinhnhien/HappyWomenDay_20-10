@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Women's Day 20/10 🌸</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Happy Women's Day 20/10 🌸">
+<meta property="og:description" content="Ghé tiệm hoa nhỏ, tự tay chọn và gói một bó hoa kèm thiệp chúc mừng Ngày Phụ nữ Việt Nam 20/10.">
+<meta name="description" content="Ghé tiệm hoa nhỏ, tự tay chọn và gói một bó hoa kèm thiệp chúc mừng Ngày Phụ nữ Việt Nam 20/10.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;700&subset=vietnamese&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Nền trời: mây trôi (cánh hoa rơi do script.js sinh ra) -->
+<div class="sky" aria-hidden="true">
+  <div class="cloud" style="--t:6%;--w:150px;--d:110s;--o:-30s"></div>
+  <div class="cloud" style="--t:17%;--w:100px;--d:85s;--o:-70s"></div>
+  <div class="cloud" style="--t:30%;--w:130px;--d:130s;--o:-10s"></div>
+</div>
+<div class="petals" id="petals" aria-hidden="true"></div>
+
+<main id="app">
+
+  <!-- Màn 1: Tiệm hoa (SVG mặt tiền do script.js vẽ) -->
+  <section class="scene active" data-scene="shop" aria-label="Tiệm hoa">
+    <button class="shop" id="shop" aria-label="Bước vào tiệm hoa"></button>
+    <div class="ground"><p class="hint">Chạm vào tiệm để bước vào ✨</p></div>
+  </section>
+
+  <!-- Màn 2: Chọn hoa -->
+  <section class="scene pick" data-scene="pick" aria-label="Chọn hoa">
+    <header class="pick-head">
+      <h2>Chọn hoa nào 🌷</h2>
+      <div class="pill" id="counter" aria-live="polite">Đã chọn 0/9</div>
+    </header>
+    <div class="shelf" id="shelf"></div>
+    <div class="tray-wrap">
+      <div class="tray" id="tray" aria-label="Khay bó hoa"></div>
+      <div class="actions">
+        <button class="btn alt" id="btnReset" aria-label="Chọn lại, xóa hết hoa trong khay">Chọn lại</button>
+        <button class="btn" id="btnWrap" aria-label="Gói hoa, cần chọn ít nhất 3 cành" disabled>Gói hoa 🎀</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Màn 3: Gói hoa -->
+  <section class="scene center" data-scene="wrap" aria-label="Gói hoa">
+    <div class="bq-scale"><div class="bq" id="bq-wrap"></div></div>
+    <button class="btn alt skip" id="btnSkip" aria-label="Bỏ qua hoạt cảnh gói hoa">Bỏ qua ⏭</button>
+  </section>
+
+  <!-- Màn 4: Bó hoa và thiệp -->
+  <section class="scene center" data-scene="card" aria-label="Bó hoa và thiệp">
+    <div class="bq-scale"><div class="bq breathe" id="bq-final"></div></div>
+    <p class="hint bottom-hint">Chạm vào thiệp để mở 💌</p>
+  </section>
+
+</main>
+
+<!-- Thiệp mở ra giữa màn hình -->
+<div class="overlay" id="overlay" hidden>
+  <div class="book" id="book">
+    <div class="page">
+      <div class="letter" id="letter"></div>
+      <div class="card-actions line" style="--i:6">
+        <button class="btn alt" id="btnClose" aria-label="Đóng thiệp">✕ Đóng</button>
+        <button class="btn" id="btnNew" aria-label="Làm bó hoa mới">💐 Làm bó hoa mới</button>
+      </div>
+    </div>
+    <div class="cover">
+      <div class="face front"><span class="cv-title">Happy Women's Day 20/10</span><span class="cv-heart">♥</span><span class="cv-sub">Gửi Vy Hoàng Chi ✦</span></div>
+      <div class="face back"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
